@@ -1,0 +1,60 @@
+{% extends 'base.twig' %}
+
+{% block title %}Historial de Vehículo{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">Historial de {{ matricula }}</h1>
+
+        {% if trayectos is not empty %}
+            <table class="table table-striped table-hover">
+                <thead class="table-primary">
+                <tr>
+                    <th>Fecha de Inicio</th>
+                    <th>Conductor</th>
+                    <th>Duración</th>
+                    <th>Kilómetros Recorridos</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for trayecto in trayectos %}
+                    <tr>
+                        <td>{{ trayecto.fechaInicio|date('d/m/Y H:i') }}</td>
+                        <td>{{ trayecto.dniEmpleado }}</td>
+                        <td>
+                            {% if trayecto.fechaFin %}
+                                {{ (trayecto.fechaFin|date('U') - trayecto.fechaInicio|date('U')) // 60 }} min
+                            {% else %}
+                                En curso
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if trayecto.odometroFin %}
+                                {{ trayecto.odometroFin - trayecto.odometroInicio }} km
+                            {% else %}
+                                En curso
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Paginación -->
+            <nav class="mt-4">
+                <ul class="pagination">
+                    {% for i in 1..totalPaginas %}
+                        <li class="page-item {% if i == paginaActual %}active{% endif %}">
+                            <a class="page-link" href="/trayectos/historial/{{ matricula }}?pagina={{ i }}">{{ i }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                No hay trayectos registrados para este vehículo.
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
