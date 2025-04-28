@@ -140,7 +140,8 @@ router.post('/admin/registrar-vehiculo', requireLogin, requireAdmin, async (req,
         bastidor: bastidor,
         marca: marca,
         modelo: modelo,
-        combustible: combustible
+        combustible: combustible,
+        estado: "LIBRE"
     });
 
     res.redirect('/admin/vehiculos');

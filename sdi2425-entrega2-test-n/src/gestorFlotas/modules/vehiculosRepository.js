@@ -32,5 +32,26 @@ module.exports = {
         await client.connect();
         const db = client.db(dbName);
         return db.collection('vehiculos').deleteOne({ _id: new ObjectId(id) });
+    },
+    obtenerVehiculosLibres: async () => {
+        await client.connect();
+        const db = client.db(dbName);
+        return db.collection('vehiculos').find({ estado: "LIBRE" }).toArray();
+    },
+    cambiarEstadoVehiculo: async (matricula, nuevoEstado) => {
+        await client.connect();
+        const db = client.db(dbName);
+        return db.collection('vehiculos').updateOne(
+            { matricula: matricula },
+            { $set: { estado: nuevoEstado } }
+        );
+    },
+
+    marcarVehiculoOcupado: async (matricula) => {
+        return module.exports.cambiarEstadoVehiculo(matricula, "OCUPADO");
+    },
+
+    marcarVehiculoLibre: async (matricula) => {
+        return module.exports.cambiarEstadoVehiculo(matricula, "LIBRE");
     }
 };

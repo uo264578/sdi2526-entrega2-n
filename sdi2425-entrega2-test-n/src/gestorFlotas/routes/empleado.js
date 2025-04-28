@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const trayectosRepository = require('../modules/trayectosRepository');
+const vehiculosRepository = require('../modules/vehiculosRepository');
 const { requireLogin, requireEmployee } = require('../modules/authMiddleware');
 
 router.get('/trayectos/mis-trayectos', requireLogin, requireEmployee, async (req, res) => {
@@ -50,6 +51,8 @@ router.post('/trayectos/iniciar', requireLogin, requireEmployee, async (req, res
         odometroInicio: odometroInicio
     });
 
+    await vehiculosRepository.marcarVehiculoOcupado(matricula);
+
     res.redirect('/trayectos/mis-trayectos');
 });
 
@@ -82,6 +85,7 @@ router.post('/trayectos/finalizar', requireLogin, requireEmployee, async (req, r
         observaciones: observaciones,
         fechaFin: new Date()
     });
+    await vehiculosRepository.marcarVehiculoLibre(trayectoEnCurso.matriculaVehiculo);
 
     res.redirect('/trayectos/historial/' + trayectoEnCurso.matriculaVehiculo);
 });

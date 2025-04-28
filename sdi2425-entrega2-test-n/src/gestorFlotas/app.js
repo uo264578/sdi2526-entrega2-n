@@ -7,6 +7,8 @@ const adminRoutes = require('./routes/admin');
 const empleadoRoutes = require('./routes/empleado');
 const logsRepository = require('./modules/logsRepository');
 const apiAuthRoutes = require('./routes/api/auth');
+const apiVehiculosRoutes = require('./routes/api/vehiculos');
+const apiTrayectos = require('./routes/api/trayectos');
 
 const log4js = require('log4js');
 
@@ -57,5 +59,7 @@ app.use('/', authRoutes);
 app.use('/', adminRoutes);
 app.use('/', empleadoRoutes);
 app.use('/api/auth', apiAuthRoutes);
+app.use('/api/vehiculos', apiVehiculosRoutes);
+app.use('/api', apiTrayectos);
 
 module.exports = app;
