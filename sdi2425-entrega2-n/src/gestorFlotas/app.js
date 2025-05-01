@@ -58,8 +58,8 @@ app.use(async (req, res, next) => {
 app.use('/', authRoutes);
 app.use('/', adminRoutes);
 app.use('/', empleadoRoutes);
-app.use('/api/auth', apiAuthRoutes);
+app.use('/api', apiAuthRoutes);
 app.use('/api/vehiculos', apiVehiculosRoutes);
-app.use('/api', apiTrayectos);
+app.use('/api/trayectos', apiTrayectos);
 
 module.exports = app;

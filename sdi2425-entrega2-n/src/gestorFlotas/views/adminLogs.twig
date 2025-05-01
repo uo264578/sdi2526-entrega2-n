@@ -6,11 +6,10 @@
     <div class="container mt-5">
         <h1 class="text-primary mb-4">Logs del Sistema</h1>
 
-        <!-- Formulario para filtrar por tipo -->
         <form method="get" action="/admin/logs" class="mb-4">
             <div class="row g-3">
                 <div class="col-md-4">
-                    <select class="form-select" name="tipo" onchange="this.form.submit()">
+                    <select id="tipo" class="form-select" name="tipo" onchange="this.form.submit()">
                         <option value="">-- Todos los tipos --</option>
                         <option value="PET" {% if tipoSeleccionado == 'PET' %}selected{% endif %}>Peticiones</option>
                         <option value="ALTA" {% if tipoSeleccionado == 'ALTA' %}selected{% endif %}>Altas</option>
@@ -22,7 +21,6 @@
             </div>
         </form>
 
-        <!-- Botón para borrar logs -->
         <form method="post" action="/admin/logs/borrar" class="mb-4">
             <input type="hidden" name="tipo" value="{{ tipoSeleccionado }}">
             <button type="submit" class="btn btn-danger btn-sm">Borrar Logs</button>

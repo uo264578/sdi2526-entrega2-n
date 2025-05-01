@@ -28,7 +28,7 @@ router.get('/login', (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { dni, password } = req.body;
-    const hashedPassword = crypto.createHmac('sha256', 'claveSecreta')
+    const hashedPassword = crypto.createHmac('sha256', 'uo264578')
         .update(password.trim())
         .digest('hex');
 

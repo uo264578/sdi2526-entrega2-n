@@ -19,7 +19,7 @@ router.post('/login', async (req, res) => {
         return res.status(401).json({ error: 'Email o contraseña incorrectos.' });
     }
 
-    const hashedPassword = crypto.createHmac('sha256', 'claveSecreta')
+    const hashedPassword = crypto.createHmac('sha256', 'uo264578')
         .update(password.trim())
         .digest('hex');
 

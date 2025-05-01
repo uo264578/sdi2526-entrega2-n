@@ -59,7 +59,7 @@ router.post('/admin/registrar-empleado', requireLogin, requireAdmin, async (req,
 
     const passwordGenerada = generarPasswordFuerte(12);
 
-    const hashedPassword = crypto.createHmac('sha256', 'claveSecreta')
+    const hashedPassword = crypto.createHmac('sha256', 'uo264578')
         .update(passwordGenerada)
         .digest('hex');
 
@@ -182,6 +182,11 @@ router.post('/admin/editar-empleado/:id', requireLogin, requireAdmin, async (req
         errores.push('Rol no válido.');
     }
 
+    const existingUser = await usersRepository.findUserByDni(dni);
+    if (existingUser && existingUser._id.toString() !== id) {
+        errores.push('Ya existe un usuario con ese DNI.');
+    }
+
     if (errores.length > 0) {
         const empleado = { _id: id, dni, nombre, apellidos, rol };
         return res.render('editarEmpleado', { errores, empleado, rolesDisponibles });
@@ -201,7 +206,8 @@ router.get('/admin/vehiculos', requireLogin, requireAdmin, async (req, res) => {
     const pagina = parseInt(req.query.pagina) || 1;
     const vehiculosPorPagina = 5;
 
-    const vehiculos = await vehiculosRepository.findAllVehiculos();
+    const vehiculos = (await vehiculosRepository.findAllVehiculos())
+        .sort((a, b) => a.matricula.localeCompare(b.matricula));
 
     const totalVehiculos = vehiculos.length;
     const totalPaginas = Math.ceil(totalVehiculos / vehiculosPorPagina);
