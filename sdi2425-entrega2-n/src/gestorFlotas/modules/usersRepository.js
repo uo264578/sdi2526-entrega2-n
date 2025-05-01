@@ -37,7 +37,7 @@ module.exports = {
     findUserByEmail: async (email) => {
         await client.connect();
         const db = client.db(dbName);
-        return db.collection('usuarios').findOne({ email: email });
+        return db.collection('usuarios').findOne({ correo: email });
     }
 
 };
