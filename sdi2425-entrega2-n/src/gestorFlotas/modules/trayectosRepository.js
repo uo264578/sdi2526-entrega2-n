@@ -61,6 +61,10 @@ module.exports = {
         await client.connect();
         const db = client.db(dbName);
         return db.collection('vehiculos').find({}).toArray();
+    },
+    findTrayectoById: async (id) => {
+        await client.connect();
+        const db = client.db(dbName);
+        return db.collection('trayectos').findOne({ _id: new ObjectId(id) });
     }
-
 };
