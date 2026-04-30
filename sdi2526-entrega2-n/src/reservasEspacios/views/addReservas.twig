@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <h1>Reservar {{ espacio.nombre }}</h1>
+
+    {% if errores %}
+        <div class="alert alert-danger">
+            {% for error in errores %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="post">
+        <label>Inicio</label>
+        <input type="datetime-local" name="inicio">
+
+        <label>Fin</label>
+        <input type="datetime-local" name="fin">
+
+        <label>Motivo</label>
+        <textarea name="motivo"></textarea>
+
+        <button type="submit">Reservar</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.twig' %}
+
+{% block title %}Espacios disponibles{% endblock %}
+
+{% block content %}
+    <h1>Espacios disponibles</h1>
+
+    <form method="get" action="/espacios" class="form-inline mb-3">
+        <label>Tipo:&nbsp;</label>
+        <select class="form-control" name="tipo">
+            <option value="">Todos</option>
+            <option value="Sala" {% if tipoFiltro == 'Sala' %}selected{% endif %}>Sala</option>
+            <option value="Aula" {% if tipoFiltro == 'Aula' %}selected{% endif %}>Aula</option>
+            <option value="Coworking" {% if tipoFiltro == 'Coworking' %}selected{% endif %}>Coworking</option>
+        </select>
+
+        <label class="ml-2">Capacidad mínima:&nbsp;</label>
+        <input class="form-control" type="number" name="capacidadMinima" value="{{ capacidadMinima }}">
+
+        <button type="submit" class="btn btn-primary ml-2">Filtrar</button>
+        <a href="/espacios" class="btn btn-secondary ml-2">Limpiar</a>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Ubicación</th>
+            <th>Capacidad</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for espacio in espacios %}
+            <tr>
+                <td>{{ espacio.nombre }}</td>
+                <td>{{ espacio.tipo }}</td>
+                <td>{{ espacio.ubicacion }}</td>
+                <td>{{ espacio.capacidad }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="/espacios/{{ espacio._id }}">Detalle</a>
+                    <a class="btn btn-warning btn-sm" href="/espacios/{{ espacio._id }}/disponibilidad">Disponibilidad</a>
+                    <a class="btn btn-success btn-sm" href="/reservas/add/{{ espacio._id }}">Reservar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

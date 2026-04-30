@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Reservas de Espacios</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if user %}
+                    {% if user.rol == 'Administrador' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/espacios">Espacios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/reservas">Reservas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/bloqueos">Bloqueos</a>
+                        </li>
+                    {% endif %}
+
+                    {% if user.rol == 'Usuario Estándar' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/espacios">Espacios disponibles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/reservas/mis-reservas">Mis reservas</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+
+            <div class="d-flex">
+                {% if user %}
+                    <a class="btn btn-outline-light" href="/logout">Cerrar sesión</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

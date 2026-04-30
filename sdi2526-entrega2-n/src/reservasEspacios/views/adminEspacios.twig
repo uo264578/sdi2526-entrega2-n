@@ -1,0 +1,52 @@
+{% extends 'base.twig' %}
+
+{% block title %}Administración de espacios{% endblock %}
+
+{% block content %}
+    <h1>Administración de espacios</h1>
+
+    <a href="/admin/espacios/add" class="btn btn-primary mb-3">Registrar nuevo espacio</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Ubicación</th>
+            <th>Capacidad</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for espacio in espacios %}
+            <tr>
+                <td>{{ espacio.nombre }}</td>
+                <td>{{ espacio.tipo }}</td>
+                <td>{{ espacio.ubicacion }}</td>
+                <td>{{ espacio.capacidad }}</td>
+                <td>
+                    {% if espacio.activo %}
+                        Activo
+                    {% else %}
+                        Desactivado
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/admin/espacios/edit/{{ espacio._id }}" class="btn btn-warning btn-sm">Editar</a>
+
+                    {% if espacio.activo %}
+                        <form method="post" action="/admin/espacios/desactivar/{{ espacio._id }}" style="display:inline">
+                            <button type="submit" class="btn btn-danger btn-sm">Desactivar</button>
+                        </form>
+                    {% else %}
+                        <form method="post" action="/admin/espacios/activar/{{ espacio._id }}" style="display:inline">
+                            <button type="submit" class="btn btn-success btn-sm">Activar</button>
+                        </form>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.twig' %}
+
+{% block title %}Listado global de reservas{% endblock %}
+
+{% block content %}
+    <h1>Listado global de reservas</h1>
+
+    <form method="get" action="/admin/reservas" class="form-inline mb-3">
+        <div class="form-group">
+            <label>Espacio:&nbsp;</label>
+            <select class="form-control" name="espacioId">
+                <option value="">Todos</option>
+                {% for espacio in espacios %}
+                    <option value="{{ espacio._id }}" {% if espacioId == espacio._id %}selected{% endif %}>
+                        {{ espacio.nombre }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group ml-2">
+            <label>Desde:&nbsp;</label>
+            <input class="form-control" type="date" name="fechaInicio" value="{{ fechaInicio }}">
+        </div>
+
+        <div class="form-group ml-2">
+            <label>Hasta:&nbsp;</label>
+            <input class="form-control" type="date" name="fechaFin" value="{{ fechaFin }}">
+        </div>
+
+        <button type="submit" class="btn btn-primary ml-2">Filtrar</button>
+        <a href="/admin/reservas" class="btn btn-secondary ml-2">Limpiar</a>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Espacio</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for reserva in reservas %}
+            <tr>
+                <td>{{ reserva.dniUsuario }}</td>
+                <td>{{ reserva.nombreEspacio }}</td>
+                <td>{{ reserva.inicio }}</td>
+                <td>{{ reserva.fin }}</td>
+                <td>{{ reserva.estado }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if totalPaginas > 1 %}
+        <nav>
+            <ul class="pagination">
+                {% for i in 1..totalPaginas %}
+                    <li class="{% if i == paginaActual %}active{% endif %}">
+                        <a href="/admin/reservas?pagina={{ i }}&espacioId={{ espacioId }}&fechaInicio={{ fechaInicio }}&fechaFin={{ fechaFin }}">
+                            {{ i }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endblock %}

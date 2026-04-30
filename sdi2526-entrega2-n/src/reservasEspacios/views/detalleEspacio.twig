@@ -1,0 +1,32 @@
+{% extends 'base.twig' %}
+
+{% block title %}Detalle del espacio{% endblock %}
+
+{% block content %}
+    <h1>Detalle del espacio</h1>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>{{ espacio.nombre }}</strong>
+        </div>
+
+        <div class="panel-body">
+            <p><strong>Tipo:</strong> {{ espacio.tipo }}</p>
+            <p><strong>Ubicación:</strong> {{ espacio.ubicacion }}</p>
+            <p><strong>Capacidad:</strong> {{ espacio.capacidad }}</p>
+            <p><strong>Descripción:</strong> {{ espacio.descripcion }}</p>
+            <p>
+                <strong>Estado:</strong>
+                {% if espacio.activo %}
+                    Activo
+                {% else %}
+                    Desactivado
+                {% endif %}
+            </p>
+        </div>
+    </div>
+
+    <a href="/espacios" class="btn btn-secondary">Volver</a>
+    <a href="/espacios/{{ espacio._id }}/disponibilidad" class="btn btn-warning">Consultar disponibilidad</a>
+    <a href="/reservas/add/{{ espacio._id }}" class="btn btn-success">Reservar</a>
+{% endblock %}

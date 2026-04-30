@@ -1,0 +1,42 @@
+{% extends 'base.twig' %}
+
+{% block title %}Bloqueos de mantenimiento{% endblock %}
+
+{% block content %}
+    <h1>Bloqueos de mantenimiento</h1>
+
+    <a href="/admin/bloqueos/add" class="btn btn-primary mb-3">Crear bloqueo</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Espacio</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Motivo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for bloqueo in bloqueos %}
+            <tr>
+                <td>{{ bloqueo.nombreEspacio }}</td>
+                <td>{{ bloqueo.inicio }}</td>
+                <td>{{ bloqueo.fin }}</td>
+                <td>{{ bloqueo.motivo }}</td>
+                <td>{{ bloqueo.estado }}</td>
+                <td>
+                    {% if bloqueo.estado == 'ACTIVO' %}
+                        <form method="post" action="/admin/bloqueos/cancelar/{{ bloqueo._id }}" style="display:inline">
+                            <button type="submit" class="btn btn-danger btn-sm">Cancelar</button>
+                        </form>
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

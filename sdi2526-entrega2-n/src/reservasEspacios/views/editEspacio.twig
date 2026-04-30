@@ -1,0 +1,51 @@
+{% extends 'base.twig' %}
+
+{% block title %}Editar espacio{% endblock %}
+
+{% block content %}
+    <h1>Editar espacio</h1>
+
+    {% if errores %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for error in errores %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <form method="post" action="/admin/espacios/edit/{{ espacio._id }}">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input class="form-control" type="text" name="nombre" value="{{ espacio.nombre }}">
+        </div>
+
+        <div class="form-group">
+            <label>Tipo</label>
+            <select class="form-control" name="tipo">
+                <option value="Sala" {% if espacio.tipo == 'Sala' %}selected{% endif %}>Sala</option>
+                <option value="Aula" {% if espacio.tipo == 'Aula' %}selected{% endif %}>Aula</option>
+                <option value="Coworking" {% if espacio.tipo == 'Coworking' %}selected{% endif %}>Coworking</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Ubicación</label>
+            <input class="form-control" type="text" name="ubicacion" value="{{ espacio.ubicacion }}">
+        </div>
+
+        <div class="form-group">
+            <label>Capacidad</label>
+            <input class="form-control" type="number" name="capacidad" value="{{ espacio.capacidad }}">
+        </div>
+
+        <div class="form-group">
+            <label>Descripción</label>
+            <textarea class="form-control" name="descripcion">{{ espacio.descripcion }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        <a href="/admin/espacios" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

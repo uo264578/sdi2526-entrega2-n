@@ -1,0 +1,81 @@
+{% extends 'base.twig' %}
+
+{% block title %}Disponibilidad{% endblock %}
+
+{% block content %}
+    <h1>Disponibilidad de {{ espacio.nombre }}</h1>
+
+    <form method="get" action="/espacios/{{ espacio._id }}/disponibilidad" class="form-inline mb-3">
+        <label>Desde:&nbsp;</label>
+        <input class="form-control" type="datetime-local" name="fechaInicio" value="{{ fechaInicio }}">
+
+        <label class="ml-2">Hasta:&nbsp;</label>
+        <input class="form-control" type="datetime-local" name="fechaFin" value="{{ fechaFin }}">
+
+        <button type="submit" class="btn btn-primary ml-2">Consultar</button>
+    </form>
+
+    {% if fechaInicio and fechaFin %}
+        <h3>Franjas ocupadas por reservas</h3>
+
+        {% if reservas.length > 0 %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Inicio</th>
+                    <th>Fin</th>
+                    <th>Estado</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for reserva in reservas %}
+                    <tr>
+                        <td>{{ reserva.inicio }}</td>
+                        <td>{{ reserva.fin }}</td>
+                        <td>{{ reserva.estado }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-success">No hay reservas activas en ese rango.</div>
+        {% endif %}
+
+        <h3>Franjas ocupadas por mantenimiento</h3>
+
+        {% if bloqueos.length > 0 %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Inicio</th>
+                    <th>Fin</th>
+                    <th>Motivo</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for bloqueo in bloqueos %}
+                    <tr>
+                        <td>{{ bloqueo.inicio }}</td>
+                        <td>{{ bloqueo.fin }}</td>
+                        <td>{{ bloqueo.motivo }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-success">No hay bloqueos activos en ese rango.</div>
+        {% endif %}
+
+        {% if reservas.length == 0 and bloqueos.length == 0 %}
+            <div class="alert alert-info">
+                El espacio está disponible para la franja consultada.
+            </div>
+        {% else %}
+            <div class="alert alert-warning">
+                El espacio tiene franjas ocupadas dentro del rango consultado.
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <a href="/espacios" class="btn btn-secondary">Volver</a>
+{% endblock %}

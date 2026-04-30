@@ -1,0 +1,40 @@
+{% extends 'base.twig' %}
+
+{% block title %}Usuarios del sistema{% endblock %}
+
+{% block content %}
+    <h1>Usuarios del sistema</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Rol</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.dni }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellidos }}</td>
+                <td>{{ usuario.rol }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if totalPaginas > 1 %}
+        <nav>
+            <ul class="pagination">
+                {% for i in 1..totalPaginas %}
+                    <li class="{% if i == paginaActual %}active{% endif %}">
+                        <a href="/admin/usuarios?pagina={{ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endblock %}

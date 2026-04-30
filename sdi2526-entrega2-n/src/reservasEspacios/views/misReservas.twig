@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <h1>Mis reservas</h1>
+
+    <table class="table">
+        <tr>
+            <th>Espacio</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+
+        {% for r in reservas %}
+            <tr>
+                <td>{{ r.nombreEspacio }}</td>
+                <td>{{ r.inicio }}</td>
+                <td>{{ r.fin }}</td>
+                <td>{{ r.estado }}</td>
+                <td>
+                    {% if r.estado == 'ACTIVA' %}
+                        <form method="post" action="/reservas/cancelar/{{ r._id }}">
+                            <button>Cancelar</button>
+                        </form>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
