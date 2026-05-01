@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const crypto = require('crypto');
 const usersRepository = require('../modules/usersRepository');
-const logsRepository = require('../modules/logsRepository');
 const log4js = require('log4js');
 const logger = log4js.getLogger('app');
 

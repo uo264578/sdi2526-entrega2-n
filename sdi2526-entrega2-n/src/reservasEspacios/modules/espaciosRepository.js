@@ -19,6 +19,11 @@ module.exports = {
     findEspacioById: async (id) => {
         await client.connect();
         const db = client.db(dbName);
+
+        if (!ObjectId.isValid(id)) {
+            return null;
+        }
+
         return db.collection('espacios').findOne({ _id: new ObjectId(id) });
     },
 

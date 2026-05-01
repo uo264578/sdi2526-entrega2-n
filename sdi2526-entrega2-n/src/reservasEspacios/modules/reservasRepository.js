@@ -19,6 +19,11 @@ module.exports = {
     findReservaById: async (id) => {
         await client.connect();
         const db = client.db(dbName);
+
+        if (!ObjectId.isValid(id)) {
+            return null;
+        }
+
         return db.collection('reservas').findOne({ _id: new ObjectId(id) });
     },
 
@@ -35,5 +40,39 @@ module.exports = {
         await client.connect();
         const db = client.db(dbName);
         return db.collection('reservas').find(filtro).toArray();
+    },
+    insertReserva: async (reserva) => {
+        await client.connect();
+        const db = client.db(dbName);
+        return db.collection('reservas').insertOne(reserva);
+    },
+
+    cancelarReserva: async (id) => {
+        await client.connect();
+        const db = client.db(dbName);
+        return db.collection('reservas').updateOne(
+            { _id: new ObjectId(id) },
+            { $set: { estado: 'CANCELADA' } }
+        );
+    },
+
+    updateReserva: async (id, datosReserva) => {
+        await client.connect();
+        const db = client.db(dbName);
+
+        if (!ObjectId.isValid(id)) {
+            return null;
+        }
+
+        return db.collection('reservas').updateOne(
+            { _id: new ObjectId(id) },
+            { $set: datosReserva }
+        );
+    },
+
+    insertManyReservas: async (reservas) => {
+        await client.connect();
+        const db = client.db(dbName);
+        return db.collection('reservas').insertMany(reservas);
     }
 };
