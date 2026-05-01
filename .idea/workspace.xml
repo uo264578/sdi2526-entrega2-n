@@ -5,42 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f0efa09-f096-447d-9bf9-d3662630e872" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/modules/api/jwtMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/react-client/src/api/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/react-client/src/components/NavBar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/react-client/src/pages/CrearReserva.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/react-client/src/pages/EditarReserva.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/react-client/src/pages/Login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/react-client/src/pages/ReservaRecurrente.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/react-client/src/pages/Reservas.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/routes/api/apiAuth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/routes/api/apiReservas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/modules/espaciosRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/modules/espaciosRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/modules/reservasRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/modules/reservasRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jsonwebtoken/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jsonwebtoken/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jwa/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jwa/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jwa/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jwa/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jwa/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jwa/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/lib/sign-stream.js" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/lib/sign-stream.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/lib/verify-stream.js" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/lib/verify-stream.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/node_modules/jws/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/public/finalizarTrayecto.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/public/historialVehiculo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/public/iniciarTrayecto.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/public/loginAjax.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/public/menuEmpleado.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/public/misTrayectos.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/public/stylesheets/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/public/vehiculosDisponibles.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/routes/api/auth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/src/reservasEspacios/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/out/artifacts/sdi_2223_spring_jar/sdi-2223-spring.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sdi2526-entrega2-n/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sdi2526-entrega2-n/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1745491528585</updated>
-      <workItem from="1777556228239" duration="19021000" />
+      <workItem from="1777556228239" duration="20716000" />
     </task>
     <servers />
   </component>

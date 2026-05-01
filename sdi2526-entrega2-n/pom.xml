@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.uniovi</groupId>
-    <artifactId>sdi2223-entrega2-test-n</artifactId>
+    <artifactId>sdi2526-entrega2-test-n</artifactId>
     <version>0.0.1-SNAPSHOT</version>
    <packaging>war</packaging>
-    <name>sdi2223-entrega2-test-n</name>
-    <description>sdi2223-entrega2-test-n</description>
+    <name>sdi2526-entrega2-test-n</name>
+    <description>sdi2526-entrega2-test-n</description>
     <properties>
         <java.version>17</java.version>
         <maven.compiler.target>17</maven.compiler.target>
